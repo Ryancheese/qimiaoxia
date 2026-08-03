@@ -1,12 +1,12 @@
-import { ExternalLink, Heart } from 'lucide-react'
+import { Heart } from 'lucide-react'
 import { motion } from 'framer-motion'
-import type { Tool } from '../data/tools'
+import type { ToolMeta } from '../data/tools'
 
 interface ToolListProps {
-  tools: Tool[]
+  tools: ToolMeta[]
   isFavorite: (id: string) => boolean
   onToggleFavorite: (id: string) => void
-  onOpen: (tool: Tool) => void
+  onOpen: (tool: ToolMeta) => void
   emptyText?: string
 }
 
@@ -33,19 +33,15 @@ export function ToolList({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.28, delay: Math.min(index * 0.03, 0.24) }}
           >
-            <button
-              type="button"
-              className="tool-main"
-              onClick={() => onOpen(tool)}
-            >
+            <button type="button" className="tool-main" onClick={() => onOpen(tool)}>
               <span className="tool-icon" aria-hidden="true">
-                {tool.name.slice(0, 1).toUpperCase()}
+                {tool.name.slice(0, 1)}
               </span>
               <span className="tool-meta">
                 <span className="tool-name-row">
                   <span className="tool-name">{tool.name}</span>
                   {tool.hot ? <span className="badge badge-hot">热门</span> : null}
-                  {tool.new ? <span className="badge badge-new">新收录</span> : null}
+                  {tool.new ? <span className="badge badge-new">新</span> : null}
                 </span>
                 <span className="tool-desc">{tool.desc}</span>
                 <span className="tool-tags">
@@ -56,7 +52,6 @@ export function ToolList({
                   ))}
                 </span>
               </span>
-              <ExternalLink size={16} className="tool-ext" aria-hidden="true" />
             </button>
             <button
               type="button"

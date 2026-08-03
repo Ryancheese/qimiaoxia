@@ -2,9 +2,10 @@ import { motion } from 'framer-motion'
 
 interface HeroProps {
   onExplore: () => void
+  toolCount: number
 }
 
-export function Hero({ onExplore }: HeroProps) {
+export function Hero({ onExplore, toolCount }: HeroProps) {
   return (
     <header className="hero">
       <div className="hero-atmosphere" aria-hidden="true">
@@ -28,16 +29,8 @@ export function Hero({ onExplore }: HeroProps) {
             fill="url(#boxGrad)"
             opacity="0.95"
           />
-          <path
-            d="M95 130 L195 165 L295 130 L195 95 Z"
-            fill="#0B2E2A"
-            opacity="0.25"
-          />
-          <path
-            d="M110 95 L195 50 L280 95 L195 125 Z"
-            fill="url(#lidGrad)"
-            className="hero-lid"
-          />
+          <path d="M95 130 L195 165 L295 130 L195 95 Z" fill="#0B2E2A" opacity="0.25" />
+          <path d="M110 95 L195 50 L280 95 L195 125 Z" fill="url(#lidGrad)" className="hero-lid" />
           <circle cx="160" cy="155" r="8" fill="#071A18" opacity="0.5" />
           <circle cx="195" cy="168" r="10" fill="#071A18" opacity="0.55" />
           <circle cx="230" cy="155" r="8" fill="#071A18" opacity="0.5" />
@@ -66,7 +59,7 @@ export function Hero({ onExplore }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
         >
-          网上奇妙工具，一匣尽收
+          纯净无广告，一触即达
         </motion.h1>
         <motion.p
           className="hero-lead"
@@ -74,7 +67,7 @@ export function Hero({ onExplore }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
         >
-          手机端工具箱大全，帮你快速找到设计、开发、办公与趣味好用站。
+          {toolCount}+ 个原创内置工具，点开即用，不跳转外部网站。
         </motion.p>
         <motion.div
           className="hero-cta"
@@ -83,7 +76,7 @@ export function Hero({ onExplore }: HeroProps) {
           transition={{ duration: 0.5, delay: 0.26, ease: [0.22, 1, 0.36, 1] }}
         >
           <button type="button" className="btn-primary" onClick={onExplore}>
-            开始探索
+            打开工具箱
           </button>
         </motion.div>
       </div>

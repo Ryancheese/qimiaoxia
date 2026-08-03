@@ -1,0 +1,67 @@
+import type { ComponentType } from 'react'
+import type { ToolId } from '../data/tools'
+import { JsonFormatter } from './JsonFormatter'
+import { RegexTester } from './RegexTester'
+import { Base64Tool } from './Base64Tool'
+import { TimestampTool } from './TimestampTool'
+import { UuidTool } from './UuidTool'
+import { PasswordTool } from './PasswordTool'
+import { LinuxCmd } from './LinuxCmd'
+import { TextDiff } from './TextDiff'
+import { WordCount } from './WordCount'
+import { Pomodoro } from './Pomodoro'
+import { TodoTool } from './TodoTool'
+import { WhiteNoise } from './WhiteNoise'
+import { LedBanner } from './LedBanner'
+import { Scoreboard } from './Scoreboard'
+import { Ruler } from './Ruler'
+import { CalendarTool } from './CalendarTool'
+import { BmiTool } from './BmiTool'
+import { Anniversary } from './Anniversary'
+import { TrashSort } from './TrashSort'
+import { IpLookup } from './IpLookup'
+import { ColorPicker } from './ColorPicker'
+import { MorseTool } from './MorseTool'
+import { Acrostic } from './Acrostic'
+import {
+  BookOfAnswers,
+  CrazyThursday,
+  RainbowFart,
+  RandomQ,
+  ScumbagQuotes,
+  SimpDiary,
+} from './FunGenerators'
+import { CallSimulator } from './CallSimulator'
+
+export const toolComponents: Record<ToolId, ComponentType> = {
+  'json-format': JsonFormatter,
+  'regex-test': RegexTester,
+  base64: Base64Tool,
+  timestamp: TimestampTool,
+  uuid: UuidTool,
+  password: PasswordTool,
+  'linux-cmd': LinuxCmd,
+  'text-diff': TextDiff,
+  'word-count': WordCount,
+  pomodoro: Pomodoro,
+  todo: TodoTool,
+  'white-noise': WhiteNoise,
+  'led-banner': LedBanner,
+  scoreboard: Scoreboard,
+  ruler: Ruler,
+  calendar: CalendarTool,
+  bmi: BmiTool,
+  anniversary: Anniversary,
+  'trash-sort': TrashSort,
+  'ip-lookup': IpLookup,
+  'color-picker': ColorPicker,
+  morse: MorseTool,
+  acrostic: Acrostic,
+  'rainbow-fart': RainbowFart,
+  'book-answers': BookOfAnswers,
+  'crazy-thursday': CrazyThursday,
+  scumbag: ScumbagQuotes,
+  'simp-diary': SimpDiary,
+  'random-q': RandomQ,
+  'call-sim': CallSimulator,
+}

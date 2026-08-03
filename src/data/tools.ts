@@ -1,12 +1,11 @@
 export type CategoryId =
   | 'all'
-  | 'design'
-  | 'dev'
+  | 'core'
   | 'office'
-  | 'image'
-  | 'text'
+  | 'dev'
+  | 'life'
   | 'fun'
-  | 'ai'
+  | 'focus'
 
 export interface Category {
   id: CategoryId
@@ -14,11 +13,42 @@ export interface Category {
   hint: string
 }
 
-export interface Tool {
-  id: string
+export type ToolId =
+  | 'json-format'
+  | 'regex-test'
+  | 'base64'
+  | 'timestamp'
+  | 'uuid'
+  | 'password'
+  | 'linux-cmd'
+  | 'text-diff'
+  | 'word-count'
+  | 'pomodoro'
+  | 'todo'
+  | 'white-noise'
+  | 'led-banner'
+  | 'scoreboard'
+  | 'ruler'
+  | 'calendar'
+  | 'bmi'
+  | 'anniversary'
+  | 'trash-sort'
+  | 'ip-lookup'
+  | 'color-picker'
+  | 'morse'
+  | 'acrostic'
+  | 'rainbow-fart'
+  | 'book-answers'
+  | 'crazy-thursday'
+  | 'scumbag'
+  | 'simp-diary'
+  | 'random-q'
+  | 'call-sim'
+
+export interface ToolMeta {
+  id: ToolId
   name: string
   desc: string
-  url: string
   category: Exclude<CategoryId, 'all'>
   tags: string[]
   hot?: boolean
@@ -26,272 +56,241 @@ export interface Tool {
 }
 
 export const categories: Category[] = [
-  { id: 'all', label: '全部', hint: '发现一切' },
-  { id: 'design', label: '设计', hint: '灵感与配色' },
-  { id: 'dev', label: '开发', hint: '调试与代码' },
-  { id: 'office', label: '办公', hint: '效率利器' },
-  { id: 'image', label: '图像', hint: '处理与压缩' },
-  { id: 'text', label: '文本', hint: '转换与排版' },
-  { id: 'fun', label: '趣味', hint: '奇妙发现' },
-  { id: 'ai', label: 'AI', hint: '智能助手' },
+  { id: 'all', label: '全部', hint: '纯净无广告，一触即达' },
+  { id: 'core', label: '日常', hint: '日常必备小工具' },
+  { id: 'office', label: '办公', hint: '文本与效率处理' },
+  { id: 'dev', label: '开发', hint: '调试与开发辅助' },
+  { id: 'life', label: '生活', hint: '生活查询与助手' },
+  { id: 'focus', label: '专注', hint: '番茄钟、白噪声与待办' },
+  { id: 'fun', label: '趣味', hint: '灵感与社交玩法' },
 ]
 
-export const tools: Tool[] = [
+export const tools: ToolMeta[] = [
   {
-    id: 'excalidraw',
-    name: 'Excalidraw',
-    desc: '手绘风白板，快速画流程图与草图',
-    url: 'https://excalidraw.com',
-    category: 'design',
-    tags: ['白板', '流程图', '协作'],
-    hot: true,
-  },
-  {
-    id: 'coolors',
-    name: 'Coolors',
-    desc: '一键生成配色方案，设计师灵感库',
-    url: 'https://coolors.co',
-    category: 'design',
-    tags: ['配色', '灵感'],
-  },
-  {
-    id: 'haikei',
-    name: 'Haikei',
-    desc: '生成精美 SVG 波浪、斑点与背景图案',
-    url: 'https://haikei.app',
-    category: 'design',
-    tags: ['SVG', '背景', '图案'],
-    new: true,
-  },
-  {
-    id: 'figma',
-    name: 'Figma',
-    desc: '在线协作设计工具，原型与界面一把抓',
-    url: 'https://www.figma.com',
-    category: 'design',
-    tags: ['UI', '原型', '协作'],
-    hot: true,
-  },
-  {
-    id: 'remove-bg',
-    name: 'remove.bg',
-    desc: '一键智能抠图，秒删背景',
-    url: 'https://www.remove.bg',
-    category: 'image',
-    tags: ['抠图', '背景'],
-    hot: true,
-  },
-  {
-    id: 'tinypng',
-    name: 'TinyPNG',
-    desc: '无损压缩 PNG / JPEG，体积大幅缩小',
-    url: 'https://tinypng.com',
-    category: 'image',
-    tags: ['压缩', 'PNG'],
-  },
-  {
-    id: 'photopea',
-    name: 'Photopea',
-    desc: '浏览器里的 Photoshop，免费在线修图',
-    url: 'https://www.photopea.com',
-    category: 'image',
-    tags: ['修图', 'PSD'],
-    hot: true,
-  },
-  {
-    id: 'squoosh',
-    name: 'Squoosh',
-    desc: 'Google 出品图片压缩与格式转换',
-    url: 'https://squoosh.app',
-    category: 'image',
-    tags: ['压缩', 'WebP'],
-  },
-  {
-    id: 'jsoncrack',
-    name: 'JSON Crack',
-    desc: '把 JSON 变成可交互的可视化树图',
-    url: 'https://jsoncrack.com',
+    id: 'json-format',
+    name: 'JSON 格式化',
+    desc: '美化、压缩、校验 JSON，一键复制',
     category: 'dev',
-    tags: ['JSON', '可视化'],
+    tags: ['JSON', '格式化'],
     hot: true,
   },
   {
-    id: 'regex101',
-    name: 'Regex101',
-    desc: '正则表达式实时调试与解释',
-    url: 'https://regex101.com',
+    id: 'regex-test',
+    name: '正则测试',
+    desc: '实时匹配、分组捕获与常用模板',
     category: 'dev',
     tags: ['正则', '调试'],
-  },
-  {
-    id: 'caniuse',
-    name: 'Can I Use',
-    desc: '查前端特性在各浏览器的兼容性',
-    url: 'https://caniuse.com',
-    category: 'dev',
-    tags: ['兼容性', '前端'],
-  },
-  {
-    id: 'carbon',
-    name: 'Carbon',
-    desc: '把代码片段做成精美分享图',
-    url: 'https://carbon.now.sh',
-    category: 'dev',
-    tags: ['代码', '分享'],
-  },
-  {
-    id: 'jwt-io',
-    name: 'jwt.io',
-    desc: '在线解码与调试 JWT Token',
-    url: 'https://jwt.io',
-    category: 'dev',
-    tags: ['JWT', '安全'],
-  },
-  {
-    id: 'notion',
-    name: 'Notion',
-    desc: '笔记、数据库与知识库一站搞定',
-    url: 'https://www.notion.so',
-    category: 'office',
-    tags: ['笔记', '协作'],
     hot: true,
   },
   {
-    id: 'diagrams',
-    name: 'diagrams.net',
-    desc: '免费在线画架构图、流程图、UML',
-    url: 'https://app.diagrams.net',
+    id: 'base64',
+    name: 'Base64 编解码',
+    desc: '文本 Base64 编码与解码',
+    category: 'dev',
+    tags: ['编码', 'Base64'],
+  },
+  {
+    id: 'timestamp',
+    name: '时间戳转换',
+    desc: '秒/毫秒时间戳与日期互转',
+    category: 'dev',
+    tags: ['时间', '转换'],
+  },
+  {
+    id: 'uuid',
+    name: 'UUID 生成',
+    desc: '批量生成 UUID v4',
+    category: 'dev',
+    tags: ['UUID', '生成'],
+  },
+  {
+    id: 'password',
+    name: '密码生成器',
+    desc: '可配置强度的安全随机密码',
+    category: 'core',
+    tags: ['密码', '安全'],
+    hot: true,
+  },
+  {
+    id: 'linux-cmd',
+    name: 'Linux 命令速查',
+    desc: '常用 Linux 命令本地速查手册',
+    category: 'dev',
+    tags: ['Linux', '命令'],
+  },
+  {
+    id: 'text-diff',
+    name: '文本对比',
+    desc: '对比两段文本的逐行差异',
     category: 'office',
-    tags: ['流程图', '架构'],
-  },
-  {
-    id: 'smallpdf',
-    name: 'Smallpdf',
-    desc: 'PDF 压缩、合并、转换全套工具',
-    url: 'https://smallpdf.com',
-    category: 'office',
-    tags: ['PDF', '转换'],
-  },
-  {
-    id: 'wolframalpha',
-    name: 'WolframAlpha',
-    desc: '计算引擎，从数学到生活问题都能答',
-    url: 'https://www.wolframalpha.com',
-    category: 'office',
-    tags: ['计算', '知识'],
-  },
-  {
-    id: 'mermaid',
-    name: 'Mermaid Live',
-    desc: '用文字描述自动生成流程图',
-    url: 'https://mermaid.live',
-    category: 'text',
-    tags: ['流程图', 'Markdown'],
-  },
-  {
-    id: 'markdowntable',
-    name: 'Tables Generator',
-    desc: '可视化生成 Markdown / LaTeX 表格',
-    url: 'https://www.tablesgenerator.com',
-    category: 'text',
-    tags: ['表格', 'Markdown'],
-  },
-  {
-    id: 'diffchecker',
-    name: 'Diffchecker',
-    desc: '对比两段文本、代码或图片差异',
-    url: 'https://www.diffchecker.com',
-    category: 'text',
     tags: ['对比', 'Diff'],
   },
   {
-    id: 'quillbot',
-    name: 'QuillBot',
-    desc: '英文改写、润色与语法检查',
-    url: 'https://quillbot.com',
-    category: 'text',
-    tags: ['写作', '润色'],
+    id: 'word-count',
+    name: '字数统计',
+    desc: '中英文字数、段落与阅读时长估算',
+    category: 'office',
+    tags: ['字数', '写作'],
   },
   {
-    id: 'neal-fun',
-    name: 'Neal.fun',
-    desc: '各种奇妙互动小实验与趣味网页',
-    url: 'https://neal.fun',
-    category: 'fun',
-    tags: ['互动', '实验'],
+    id: 'pomodoro',
+    name: '番茄专注钟',
+    desc: '25 分钟专注循环，可自定义时长',
+    category: 'focus',
+    tags: ['番茄钟', '专注'],
     hot: true,
   },
   {
-    id: 'window-swap',
-    name: 'Window Swap',
-    desc: '看看世界各地窗外的风景',
-    url: 'https://www.window-swap.com',
-    category: 'fun',
-    tags: ['风景', '放松'],
+    id: 'todo',
+    name: '待办清单',
+    desc: '轻量待办，数据保存在本机',
+    category: 'focus',
+    tags: ['待办', '清单'],
+    hot: true,
   },
   {
-    id: 'radio-garden',
-    name: 'Radio Garden',
-    desc: '在地球仪上收听全球电台',
-    url: 'https://radio.garden',
-    category: 'fun',
-    tags: ['电台', '音乐'],
+    id: 'white-noise',
+    name: '白噪声冥想',
+    desc: '雨声、海浪、森林等氛围音',
+    category: 'focus',
+    tags: ['白噪声', '放松'],
     new: true,
   },
   {
-    id: 'thispersondoesnotexist',
-    name: 'This Person Does Not Exist',
-    desc: 'AI 生成的虚构人脸，每次刷新都不同',
-    url: 'https://thispersondoesnotexist.com',
+    id: 'led-banner',
+    name: '手持 LED 弹幕',
+    desc: '全屏滚动字幕，聚会应援神器',
     category: 'fun',
-    tags: ['AI', '人脸'],
-  },
-  {
-    id: 'chatgpt',
-    name: 'ChatGPT',
-    desc: '对话式 AI，写作、编程、头脑风暴',
-    url: 'https://chatgpt.com',
-    category: 'ai',
-    tags: ['对话', '写作'],
+    tags: ['LED', '弹幕'],
     hot: true,
   },
   {
-    id: 'claude',
-    name: 'Claude',
-    desc: '擅长长文理解与严谨分析的 AI 助手',
-    url: 'https://claude.ai',
-    category: 'ai',
-    tags: ['对话', '分析'],
+    id: 'scoreboard',
+    name: '计分板',
+    desc: '双人记分，适合比赛与桌游',
+    category: 'core',
+    tags: ['计分', '比赛'],
   },
   {
-    id: 'perplexity',
-    name: 'Perplexity',
-    desc: '带引用来源的 AI 搜索引擎',
-    url: 'https://www.perplexity.ai',
-    category: 'ai',
-    tags: ['搜索', '研究'],
+    id: 'ruler',
+    name: '屏幕尺子',
+    desc: '用手机屏幕当尺子量长度',
+    category: 'core',
+    tags: ['尺子', '测量'],
+  },
+  {
+    id: 'calendar',
+    name: '万年历',
+    desc: '月历浏览，节假日与星期速览',
+    category: 'core',
+    tags: ['日历', '日期'],
+  },
+  {
+    id: 'bmi',
+    name: 'BMI 计算器',
+    desc: '身高体重测算身体质量指数',
+    category: 'life',
+    tags: ['健康', 'BMI'],
+  },
+  {
+    id: 'anniversary',
+    name: '纪念日倒数',
+    desc: '记录重要日子，倒数/正数天数',
+    category: 'life',
+    tags: ['纪念日', '倒数'],
+    new: true,
+  },
+  {
+    id: 'trash-sort',
+    name: '垃圾分类查询',
+    desc: '快速查询常见垃圾属于哪一类',
+    category: 'life',
+    tags: ['垃圾分类', '生活'],
+  },
+  {
+    id: 'ip-lookup',
+    name: '本机网络信息',
+    desc: '查看本地时间、时区与网络概况',
+    category: 'life',
+    tags: ['网络', 'IP'],
+  },
+  {
+    id: 'color-picker',
+    name: '颜色工具',
+    desc: '取色、HEX/RGB 互转与预览',
+    category: 'office',
+    tags: ['颜色', '设计'],
+  },
+  {
+    id: 'morse',
+    name: '摩斯电码',
+    desc: '中文拼音友好的摩斯编解码',
+    category: 'fun',
+    tags: ['摩斯', '编码'],
+  },
+  {
+    id: 'acrostic',
+    name: '藏头诗生成',
+    desc: '输入几个字，生成藏头短诗',
+    category: 'fun',
+    tags: ['诗词', '创意'],
     hot: true,
   },
   {
-    id: 'midjourney',
-    name: 'Midjourney',
-    desc: '用文字生成高质量艺术图像',
-    url: 'https://www.midjourney.com',
-    category: 'ai',
-    tags: ['绘图', '创意'],
+    id: 'rainbow-fart',
+    name: '彩虹屁生成器',
+    desc: '一键生成夸张夸夸文案',
+    category: 'fun',
+    tags: ['夸夸', '文案'],
+    hot: true,
   },
   {
-    id: 'huggingface',
-    name: 'Hugging Face Spaces',
-    desc: '海量开源 AI Demo，即开即用',
-    url: 'https://huggingface.co/spaces',
-    category: 'ai',
-    tags: ['开源', 'Demo'],
+    id: 'book-answers',
+    name: '答案之书',
+    desc: '心中默念问题，翻开得到指引',
+    category: 'fun',
+    tags: ['占卜', '决策'],
+    hot: true,
+  },
+  {
+    id: 'crazy-thursday',
+    name: '疯狂星期四',
+    desc: 'V我50 经典文案随机生成',
+    category: 'fun',
+    tags: ['星期四', '文案'],
+  },
+  {
+    id: 'scumbag',
+    name: '渣男语录',
+    desc: '随机生成「渣」味发言（娱乐）',
+    category: 'fun',
+    tags: ['语录', '娱乐'],
+  },
+  {
+    id: 'simp-diary',
+    name: '舔狗日记',
+    desc: '随机一篇今日舔狗心情',
+    category: 'fun',
+    tags: ['日记', '娱乐'],
+  },
+  {
+    id: 'random-q',
+    name: '脑洞问题机',
+    desc: '随机抛出奇怪问题开启话题',
+    category: 'fun',
+    tags: ['脑洞', '社交'],
+  },
+  {
+    id: 'call-sim',
+    name: '来电模拟器',
+    desc: '模拟来电界面，救急挡枪用',
+    category: 'core',
+    tags: ['来电', '模拟'],
     new: true,
   },
 ]
 
-export function searchTools(query: string, category: CategoryId): Tool[] {
+export function searchTools(query: string, category: CategoryId): ToolMeta[] {
   const q = query.trim().toLowerCase()
   return tools.filter((tool) => {
     const matchCategory = category === 'all' || tool.category === category
@@ -300,4 +299,8 @@ export function searchTools(query: string, category: CategoryId): Tool[] {
     const haystack = [tool.name, tool.desc, ...tool.tags].join(' ').toLowerCase()
     return haystack.includes(q)
   })
+}
+
+export function getTool(id: string): ToolMeta | undefined {
+  return tools.find((t) => t.id === id)
 }

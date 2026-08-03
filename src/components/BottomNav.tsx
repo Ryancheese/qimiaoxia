@@ -12,7 +12,7 @@ const items: { id: TabId; label: string; icon: typeof Home }[] = [
   { id: 'home', label: '首页', icon: Home },
   { id: 'explore', label: '发现', icon: Compass },
   { id: 'favorites', label: '收藏', icon: Heart },
-  { id: 'submit', label: '投稿', icon: Plus },
+  { id: 'submit', label: '许愿', icon: Plus },
 ]
 
 export function BottomNav({ active, onChange, favoriteCount }: BottomNavProps) {

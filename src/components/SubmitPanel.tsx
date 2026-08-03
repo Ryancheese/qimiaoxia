@@ -10,7 +10,7 @@ export function SubmitPanel() {
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
-    if (!name.trim() || !url.trim()) return
+    if (!name.trim()) return
     const payload = {
       name: name.trim(),
       url: url.trim(),
@@ -27,8 +27,8 @@ export function SubmitPanel() {
 
   return (
     <section className="panel submit-panel">
-      <h2>投稿奇妙工具</h2>
-      <p className="panel-lead">发现了好用的在线工具？告诉我们，下一版可能收录进奇妙匣。</p>
+      <h2>许愿新工具</h2>
+      <p className="panel-lead">想要什么内置工具？告诉我们，下一版可能亲手做出来。</p>
 
       {done ? (
         <motion.div
@@ -36,44 +36,42 @@ export function SubmitPanel() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
         >
-          <p>已记下你的推荐，谢谢！</p>
+          <p>已记下你的许愿，谢谢！</p>
           <button type="button" className="btn-ghost" onClick={() => setDone(false)}>
-            再推荐一个
+            再许一个
           </button>
         </motion.div>
       ) : (
         <form className="submit-form" onSubmit={handleSubmit}>
           <label>
-            <span>工具名称</span>
+            <span>想要的工具名</span>
             <input
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="例如：Excalidraw"
+              placeholder="例如：二维码生成"
             />
           </label>
           <label>
-            <span>网址</span>
+            <span>参考说明 / 链接（可选）</span>
             <input
-              required
-              type="url"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
-              placeholder="https://"
+              placeholder="可以留空"
             />
           </label>
           <label>
-            <span>一句话介绍（可选）</span>
+            <span>为什么需要它</span>
             <textarea
               value={note}
               onChange={(e) => setNote(e.target.value)}
-              placeholder="这个工具妙在哪里？"
+              placeholder="使用场景是什么？"
               rows={3}
             />
           </label>
           <button type="submit" className="btn-primary btn-block">
             <Send size={16} />
-            提交推荐
+            提交许愿
           </button>
         </form>
       )}
