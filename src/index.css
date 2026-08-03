@@ -1,0 +1,79 @@
+:root {
+  --bg-deep: #071a18;
+  --bg-panel: #0d2a26;
+  --bg-elevated: #123530;
+  --ink: #eaf6f1;
+  --ink-muted: #9bb8b0;
+  --mint: #7dffc4;
+  --lime: #c8f542;
+  --lime-soft: rgba(200, 245, 66, 0.16);
+  --mint-soft: rgba(125, 255, 196, 0.12);
+  --line: rgba(234, 246, 241, 0.08);
+  --danger: #ff8a7a;
+  --radius: 16px;
+  --nav-h: 68px;
+  --font-display: 'ZCOOL XiaoWei', 'Songti SC', serif;
+  --font-body: 'Outfit', 'PingFang SC', 'Noto Sans SC', sans-serif;
+  color: var(--ink);
+  background: var(--bg-deep);
+  font-family: var(--font-body);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  background:
+    radial-gradient(120% 80% at 10% -10%, rgba(125, 255, 196, 0.18), transparent 55%),
+    radial-gradient(90% 60% at 110% 10%, rgba(200, 245, 66, 0.12), transparent 50%),
+    linear-gradient(180deg, #0a221f 0%, var(--bg-deep) 40%, #051412 100%);
+  background-attachment: fixed;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+::selection {
+  background: var(--lime);
+  color: var(--bg-deep);
+}
