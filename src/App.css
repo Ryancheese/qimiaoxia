@@ -1146,6 +1146,49 @@
   color: #5856d6;
 }
 
+.box-office-value {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--mint, #30d158);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.wallpaper-preview {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: #111;
+}
+
+.wallpaper-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: min(52vh, 420px);
+  object-fit: cover;
+}
+
+.history-list .history-item {
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.history-year {
+  display: inline-block;
+  min-width: 3.2em;
+  margin-right: 8px;
+  color: var(--mint, #30d158);
+  font-variant-numeric: tabular-nums;
+}
+
 .center-stack {
   align-items: center;
   text-align: center;

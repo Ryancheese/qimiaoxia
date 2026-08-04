@@ -55,6 +55,14 @@ export type ToolId =
   | 'jwt-decode'
   | 'websocket-debug'
   | 'weather-rank'
+  | 'hitokoto'
+  | 'history-today'
+  | 'bing-wallpaper'
+  | 'box-office'
+  | 'couplet'
+  | 'riddle'
+  | 'joke'
+  | 'horoscope'
 
 export interface ToolMeta {
   id: ToolId
@@ -219,6 +227,46 @@ export const tools: ToolMeta[] = [
     new: true,
   },
   {
+    id: 'hitokoto',
+    name: '每日一言',
+    desc: '随机一句短句，可一键复制',
+    category: 'core',
+    tags: ['一言', '句子'],
+    new: true,
+  },
+  {
+    id: 'bing-wallpaper',
+    name: '必应壁纸',
+    desc: '查看今日 Bing 壁纸并打开原图',
+    category: 'core',
+    tags: ['壁纸', 'Bing'],
+    new: true,
+  },
+  {
+    id: 'history-today',
+    name: '历史今日',
+    desc: '看看历史上的今天发生了什么',
+    category: 'life',
+    tags: ['历史', '今天'],
+    new: true,
+  },
+  {
+    id: 'box-office',
+    name: '电影票房排行',
+    desc: '猫眼影史票房榜速览',
+    category: 'life',
+    tags: ['电影', '票房', '排行'],
+    new: true,
+  },
+  {
+    id: 'horoscope',
+    name: '星座运势',
+    desc: '十二星座今日趣味运势',
+    category: 'life',
+    tags: ['星座', '运势'],
+    new: true,
+  },
+  {
     id: 'linux-cmd',
     name: 'Linux 命令速查',
     desc: '常用 Linux 命令本地速查手册',
@@ -342,6 +390,30 @@ export const tools: ToolMeta[] = [
     category: 'fun',
     tags: ['诗词', '创意'],
     hot: true,
+  },
+  {
+    id: 'couplet',
+    name: '对联生成',
+    desc: '一键生成趣味春联上下联',
+    category: 'fun',
+    tags: ['对联', '春联'],
+    new: true,
+  },
+  {
+    id: 'riddle',
+    name: '脑筋急转弯',
+    desc: '本地题库，猜完再看答案',
+    category: 'fun',
+    tags: ['谜语', '急转弯'],
+    new: true,
+  },
+  {
+    id: 'joke',
+    name: '搞笑段子',
+    desc: '冷幽默段子随机放送',
+    category: 'fun',
+    tags: ['段子', '笑话'],
+    new: true,
   },
   {
     id: 'rainbow-fart',

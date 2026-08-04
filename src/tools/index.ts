@@ -55,6 +55,18 @@ export const toolComponents: Record<ToolId, AnyTool> = {
   'weather-rank': lazy(() =>
     import('./WeatherRankTool').then((m) => ({ default: m.WeatherRankTool })),
   ),
+  hitokoto: lazy(() => import('./HitokotoTool').then((m) => ({ default: m.HitokotoTool }))),
+  'history-today': lazy(() =>
+    import('./HistoryTodayTool').then((m) => ({ default: m.HistoryTodayTool })),
+  ),
+  'bing-wallpaper': lazy(() =>
+    import('./BingWallpaperTool').then((m) => ({ default: m.BingWallpaperTool })),
+  ),
+  'box-office': lazy(() => import('./BoxOfficeTool').then((m) => ({ default: m.BoxOfficeTool }))),
+  couplet: lazy(() => import('./CoupletTool').then((m) => ({ default: m.CoupletTool }))),
+  riddle: lazy(() => import('./RiddleTool').then((m) => ({ default: m.RiddleTool }))),
+  joke: lazy(() => import('./JokeTool').then((m) => ({ default: m.JokeTool }))),
+  horoscope: lazy(() => import('./HoroscopeTool').then((m) => ({ default: m.HoroscopeTool }))),
   'json-format': JsonFormatter,
   'regex-test': RegexTester,
   base64: Base64Tool,

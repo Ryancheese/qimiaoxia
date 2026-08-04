@@ -1,0 +1,44 @@
+import { useState } from 'react'
+import { CopyButton } from '../components/CopyButton'
+
+const JOKES = [
+  '程序员最讨厌的事：别人说“你改一下很简单吧”。',
+  '我问老板能不能涨工资，老板说先把咖啡续上。',
+  '减肥第一天：我要自律。第二天：我要解释为什么昨天失败。',
+  '闹钟响了三次，我终于起床去把它关掉，然后继续睡。',
+  '同事问我周末干嘛，我说修 bug；他问修哪个，我说人生。',
+  '外卖到了，我才发现自己点的是“少冰”，生活也是。',
+  '考试前：我都会。考试时：我好像都学过。考试后：我是谁。',
+  '手机电量 1%，我的耐心也是。',
+  '今天立了 flag，明天就看见风把它吹跑了。',
+  '开会最怕一句话：我补充两点，第一点分八点说。',
+  '健身教练说坚持就有奇迹，我坚持了两天，奇迹是我消失了。',
+  '我不是拖延，我是在给灵感发酵时间。',
+  '导航说前方拥堵，人生说你已在路上。',
+  '别人晒旅行，我晒进度条：已完成 3%。',
+  '写代码像谈恋爱：跑通的时候全世界都甜，报错的时候只想删库跑路。',
+]
+
+function pick(exclude: string) {
+  let next = JOKES[Math.floor(Math.random() * JOKES.length)]!
+  while (JOKES.length > 1 && next === exclude) {
+    next = JOKES[Math.floor(Math.random() * JOKES.length)]!
+  }
+  return next
+}
+
+export function JokeTool() {
+  const [text, setText] = useState(JOKES[0]!)
+  return (
+    <div className="tool-stack">
+      <p className="hint">轻松一笑，内容偏冷幽默</p>
+      <pre className="tool-pre poem">{text}</pre>
+      <div className="tool-actions">
+        <CopyButton text={text} />
+        <button type="button" className="btn-primary btn-sm" onClick={() => setText(pick(text))}>
+          再来一条
+        </button>
+      </div>
+    </div>
+  )
+}
