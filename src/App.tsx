@@ -86,7 +86,7 @@ export default function App() {
       <main className="app-main">
         {tab === 'home' ? (
           <>
-            <Hero onExplore={goExplore} toolCount={tools.length} />
+            <Hero onExplore={goExplore} onOpenTool={openTool} tools={tools} toolCount={tools.length} />
             <section className="panel home-panel">
               <div className="section-head">
                 <h2>热门工具</h2>
