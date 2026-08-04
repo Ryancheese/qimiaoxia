@@ -49,6 +49,9 @@ export const toolComponents: Record<ToolId, AnyTool> = {
   'url-codec': lazy(() => import('./UrlCodecTool').then((m) => ({ default: m.UrlCodecTool }))),
   hash: lazy(() => import('./HashTool').then((m) => ({ default: m.HashTool }))),
   'jwt-decode': lazy(() => import('./JwtDecodeTool').then((m) => ({ default: m.JwtDecodeTool }))),
+  'websocket-debug': lazy(() =>
+    import('./WebsocketDebugTool').then((m) => ({ default: m.WebsocketDebugTool })),
+  ),
   'json-format': JsonFormatter,
   'regex-test': RegexTester,
   base64: Base64Tool,

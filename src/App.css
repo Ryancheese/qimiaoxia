@@ -1002,6 +1002,72 @@
   background: #fff;
 }
 
+.ws-status.is-open {
+  color: #34c759;
+}
+
+.ws-status.is-connecting,
+.ws-status.is-closing {
+  color: #ff9f0a;
+}
+
+.ws-status.is-closed,
+.ws-status.is-idle {
+  color: var(--ink-muted);
+}
+
+.ws-autoscroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ws-log {
+  max-height: min(420px, 55vh);
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  background: #1d1d1f;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: left;
+}
+
+.ws-log-item pre {
+  margin: 4px 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.82rem;
+  color: #f5f5f7;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.ws-log-meta {
+  font-size: 0.72rem;
+  color: rgba(245, 245, 247, 0.55);
+}
+
+.ws-log-item.is-sent .ws-log-meta {
+  color: #64d2ff;
+}
+
+.ws-log-item.is-recv .ws-log-meta {
+  color: #30d158;
+}
+
+.ws-log-item.is-error .ws-log-meta,
+.ws-log-item.is-error pre {
+  color: #ff6961;
+}
+
+.ws-log-item.is-system .ws-log-meta {
+  color: #ffd60a;
+}
+
 .center-stack {
   align-items: center;
   text-align: center;

@@ -53,6 +53,7 @@ export type ToolId =
   | 'url-codec'
   | 'hash'
   | 'jwt-decode'
+  | 'websocket-debug'
 
 export interface ToolMeta {
   id: ToolId
@@ -174,6 +175,15 @@ export const tools: ToolMeta[] = [
     desc: '本地解码 JWT Header 与 Payload',
     category: 'dev',
     tags: ['JWT', 'Token'],
+    new: true,
+  },
+  {
+    id: 'websocket-debug',
+    name: 'WebSocket 调试',
+    desc: '连接 ws/wss，收发消息查看日志',
+    category: 'dev',
+    tags: ['WebSocket', '调试', 'WS'],
+    hot: true,
     new: true,
   },
   {
