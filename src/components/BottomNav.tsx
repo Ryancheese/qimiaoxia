@@ -17,24 +17,29 @@ const items: { id: TabId; label: string; icon: typeof Home }[] = [
 
 export function BottomNav({ active, onChange, favoriteCount }: BottomNavProps) {
   return (
-    <nav className="bottom-nav" aria-label="主导航">
-      {items.map(({ id, label, icon: Icon }) => (
-        <button
-          key={id}
-          type="button"
-          className={active === id ? 'nav-item is-active' : 'nav-item'}
-          onClick={() => onChange(id)}
-          aria-current={active === id ? 'page' : undefined}
-        >
-          <span className="nav-icon-wrap">
-            <Icon size={20} strokeWidth={active === id ? 2.4 : 2} />
-            {id === 'favorites' && favoriteCount > 0 ? (
-              <span className="nav-badge">{favoriteCount > 9 ? '9+' : favoriteCount}</span>
-            ) : null}
-          </span>
-          <span>{label}</span>
-        </button>
-      ))}
+    <nav className="app-nav" aria-label="主导航">
+      <button type="button" className="nav-brand" onClick={() => onChange('home')}>
+        Ryan 的工具箱
+      </button>
+      <div className="nav-items">
+        {items.map(({ id, label, icon: Icon }) => (
+          <button
+            key={id}
+            type="button"
+            className={active === id ? 'nav-item is-active' : 'nav-item'}
+            onClick={() => onChange(id)}
+            aria-current={active === id ? 'page' : undefined}
+          >
+            <span className="nav-icon-wrap">
+              <Icon size={20} strokeWidth={active === id ? 2.4 : 2} />
+              {id === 'favorites' && favoriteCount > 0 ? (
+                <span className="nav-badge">{favoriteCount > 9 ? '9+' : favoriteCount}</span>
+              ) : null}
+            </span>
+            <span className="nav-label">{label}</span>
+          </button>
+        ))}
+      </div>
     </nav>
   )
 }

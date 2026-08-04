@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { CopyButton } from '../components/CopyButton'
 
 export function JsonFormatter() {
-  const [input, setInput] = useState('{\n  "hello": "奇妙匣"\n}')
+  const [input, setInput] = useState('{\n  "hello": "Ryan 的工具箱"\n}')
   const [error, setError] = useState('')
   const [output, setOutput] = useState('')
 

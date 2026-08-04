@@ -1,19 +1,30 @@
 :root {
-  --bg-deep: #071a18;
-  --bg-panel: #0d2a26;
-  --bg-elevated: #123530;
-  --ink: #eaf6f1;
-  --ink-muted: #9bb8b0;
-  --mint: #7dffc4;
-  --lime: #c8f542;
-  --lime-soft: rgba(200, 245, 66, 0.16);
-  --mint-soft: rgba(125, 255, 196, 0.12);
-  --line: rgba(234, 246, 241, 0.08);
-  --danger: #ff8a7a;
-  --radius: 16px;
-  --nav-h: 68px;
-  --font-display: 'ZCOOL XiaoWei', 'Songti SC', serif;
-  --font-body: 'Outfit', 'PingFang SC', 'Noto Sans SC', sans-serif;
+  --bg-deep: #f5f5f7;
+  --bg-panel: #ffffff;
+  --bg-elevated: #ffffff;
+  --ink: #1d1d1f;
+  --ink-muted: #86868b;
+  --mint: #0071e3;
+  --lime: #0071e3;
+  --lime-soft: rgba(0, 113, 227, 0.1);
+  --mint-soft: rgba(0, 113, 227, 0.08);
+  --line: rgba(0, 0, 0, 0.08);
+  --danger: #ff3b30;
+  --radius: 18px;
+  --radius-sm: 12px;
+  --nav-h: 56px;
+  --top-nav-h: 48px;
+  --content-max: 100%;
+  --page-pad: 22px;
+  --shell-max: 100%;
+  --side-nav-w: 0px;
+  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'PingFang SC', 'Hiragino Sans GB',
+    'Noto Sans SC', sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'PingFang SC', 'Hiragino Sans GB',
+    'Noto Sans SC', sans-serif;
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.08);
+  --glass: rgba(255, 255, 255, 0.72);
   color: var(--ink);
   background: var(--bg-deep);
   font-family: var(--font-body);
@@ -38,10 +49,11 @@ body,
 body {
   min-height: 100dvh;
   background:
-    radial-gradient(120% 80% at 10% -10%, rgba(125, 255, 196, 0.18), transparent 55%),
-    radial-gradient(90% 60% at 110% 10%, rgba(200, 245, 66, 0.12), transparent 50%),
-    linear-gradient(180deg, #0a221f 0%, var(--bg-deep) 40%, #051412 100%);
+    radial-gradient(100% 70% at 0% 0%, rgba(0, 113, 227, 0.1), transparent 55%),
+    radial-gradient(80% 50% at 100% 10%, rgba(90, 200, 250, 0.12), transparent 50%),
+    linear-gradient(180deg, #eef2f7 0%, var(--bg-deep) 38%, #ececf0 100%);
   background-attachment: fixed;
+  color: var(--ink);
 }
 
 button,
@@ -74,6 +86,6 @@ p {
 }
 
 ::selection {
-  background: var(--lime);
-  color: var(--bg-deep);
+  background: rgba(0, 113, 227, 0.22);
+  color: var(--ink);
 }

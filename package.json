@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:gitee": "VITE_BASE=/ryan-toolbox/ tsc -b && VITE_BASE=/ryan-toolbox/ vite build && touch dist/.spa",
     "lint": "oxlint",
     "preview": "vite preview"
   },

@@ -33,7 +33,7 @@ function pick(char: string, used: Set<string>) {
 }
 
 export function Acrostic() {
-  const [word, setWord] = useState('奇妙匣')
+  const [word, setWord] = useState('Ryan')
   const [seed, setSeed] = useState(0)
 
   const poem = useMemo(() => {

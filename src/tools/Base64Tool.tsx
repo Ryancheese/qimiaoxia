@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { CopyButton } from '../components/CopyButton'
 
 export function Base64Tool() {
-  const [input, setInput] = useState('奇妙匣')
+  const [input, setInput] = useState('Ryan 的工具箱')
   const [output, setOutput] = useState('')
   const [error, setError] = useState('')
 

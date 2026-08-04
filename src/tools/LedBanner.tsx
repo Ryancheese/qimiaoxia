@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 export function LedBanner() {
-  const [text, setText] = useState('奇妙匣 纯净无广告')
+  const [text, setText] = useState('Ryan 的工具箱')
   const [color, setColor] = useState('#c8f542')
   const [speed, setSpeed] = useState(8)
   const [fullscreen, setFullscreen] = useState(false)
@@ -23,7 +23,7 @@ export function LedBanner() {
         onClick={() => setFullscreen(false)}
         style={{ color, animationDuration: `${Math.max(2, 22 - speed)}s` }}
       >
-        <span className="led-marquee">{text || '奇妙匣'}</span>
+        <span className="led-marquee">{text || 'Ryan 的工具箱'}</span>
         <small>点按退出</small>
       </button>
     )
@@ -50,7 +50,7 @@ export function LedBanner() {
         />
       </label>
       <div className="led-preview" style={{ color }}>
-        <span style={{ animationDuration: `${Math.max(2, 22 - speed)}s` }}>{text || '奇妙匣'}</span>
+        <span style={{ animationDuration: `${Math.max(2, 22 - speed)}s` }}>{text || 'Ryan 的工具箱'}</span>
       </div>
       <button type="button" className="btn-primary" onClick={() => setFullscreen(true)}>
         全屏手持展示
