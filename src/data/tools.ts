@@ -44,6 +44,10 @@ export type ToolId =
   | 'simp-diary'
   | 'random-q'
   | 'call-sim'
+  | 'ocr'
+  | 'image-compress'
+  | 'translate'
+  | 'pdf-tools'
 
 export interface ToolMeta {
   id: ToolId
@@ -66,6 +70,42 @@ export const categories: Category[] = [
 ]
 
 export const tools: ToolMeta[] = [
+  {
+    id: 'ocr',
+    name: 'OCR 识字',
+    desc: '上传图片，识别中英文文字',
+    category: 'office',
+    tags: ['OCR', '识字'],
+    hot: true,
+    new: true,
+  },
+  {
+    id: 'image-compress',
+    name: '图片压缩',
+    desc: '缩小体积，可调质量与尺寸',
+    category: 'office',
+    tags: ['压缩', '图片'],
+    hot: true,
+    new: true,
+  },
+  {
+    id: 'translate',
+    name: '简易翻译',
+    desc: '中英互译，一键复制结果',
+    category: 'office',
+    tags: ['翻译', '中英'],
+    hot: true,
+    new: true,
+  },
+  {
+    id: 'pdf-tools',
+    name: 'PDF 工具',
+    desc: '合并 PDF，或图片转成 PDF',
+    category: 'office',
+    tags: ['PDF', '合并'],
+    hot: true,
+    new: true,
+  },
   {
     id: 'json-format',
     name: 'JSON 格式化',

@@ -1,4 +1,4 @@
-import type { ComponentType } from 'react'
+import { lazy, type ComponentType, type LazyExoticComponent } from 'react'
 import type { ToolId } from '../data/tools'
 import { JsonFormatter } from './JsonFormatter'
 import { RegexTester } from './RegexTester'
@@ -33,7 +33,15 @@ import {
 } from './FunGenerators'
 import { CallSimulator } from './CallSimulator'
 
-export const toolComponents: Record<ToolId, ComponentType> = {
+type AnyTool = ComponentType | LazyExoticComponent<ComponentType>
+
+export const toolComponents: Record<ToolId, AnyTool> = {
+  ocr: lazy(() => import('./OcrTool').then((m) => ({ default: m.OcrTool }))),
+  'image-compress': lazy(() =>
+    import('./ImageCompress').then((m) => ({ default: m.ImageCompress })),
+  ),
+  translate: lazy(() => import('./TranslateTool').then((m) => ({ default: m.TranslateTool }))),
+  'pdf-tools': lazy(() => import('./PdfTools').then((m) => ({ default: m.PdfTools }))),
   'json-format': JsonFormatter,
   'regex-test': RegexTester,
   base64: Base64Tool,

@@ -1,4 +1,4 @@
-import { useDeferredValue, useMemo, useRef, useState } from 'react'
+import { Suspense, useDeferredValue, useMemo, useRef, useState } from 'react'
 import { Hero } from './components/Hero'
 import { SearchBar } from './components/SearchBar'
 import { CategoryTabs } from './components/CategoryTabs'
@@ -73,7 +73,9 @@ export default function App() {
             </button>
           }
         >
-          <ActiveComponent />
+          <Suspense fallback={<p className="empty-state">工具加载中…</p>}>
+            <ActiveComponent />
+          </Suspense>
         </ToolShell>
       </div>
     )
