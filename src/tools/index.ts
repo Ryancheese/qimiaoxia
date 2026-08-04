@@ -52,6 +52,9 @@ export const toolComponents: Record<ToolId, AnyTool> = {
   'websocket-debug': lazy(() =>
     import('./WebsocketDebugTool').then((m) => ({ default: m.WebsocketDebugTool })),
   ),
+  'weather-rank': lazy(() =>
+    import('./WeatherRankTool').then((m) => ({ default: m.WeatherRankTool })),
+  ),
   'json-format': JsonFormatter,
   'regex-test': RegexTester,
   base64: Base64Tool,

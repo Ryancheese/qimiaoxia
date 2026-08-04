@@ -54,6 +54,7 @@ export type ToolId =
   | 'hash'
   | 'jwt-decode'
   | 'websocket-debug'
+  | 'weather-rank'
 
 export interface ToolMeta {
   id: ToolId
@@ -207,6 +208,15 @@ export const tools: ToolMeta[] = [
     category: 'core',
     tags: ['密码', '安全'],
     hot: true,
+  },
+  {
+    id: 'weather-rank',
+    name: '天气排行榜',
+    desc: '全国主要城市实时气温高低排行',
+    category: 'core',
+    tags: ['天气', '排行', '气温'],
+    hot: true,
+    new: true,
   },
   {
     id: 'linux-cmd',
