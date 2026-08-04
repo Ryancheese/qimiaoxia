@@ -42,6 +42,13 @@ export const toolComponents: Record<ToolId, AnyTool> = {
   ),
   translate: lazy(() => import('./TranslateTool').then((m) => ({ default: m.TranslateTool }))),
   'pdf-tools': lazy(() => import('./PdfTools').then((m) => ({ default: m.PdfTools }))),
+  'qr-generate': lazy(() =>
+    import('./QrGenerateTool').then((m) => ({ default: m.QrGenerateTool })),
+  ),
+  'qr-parse': lazy(() => import('./QrParseTool').then((m) => ({ default: m.QrParseTool }))),
+  'url-codec': lazy(() => import('./UrlCodecTool').then((m) => ({ default: m.UrlCodecTool }))),
+  hash: lazy(() => import('./HashTool').then((m) => ({ default: m.HashTool }))),
+  'jwt-decode': lazy(() => import('./JwtDecodeTool').then((m) => ({ default: m.JwtDecodeTool }))),
   'json-format': JsonFormatter,
   'regex-test': RegexTester,
   base64: Base64Tool,

@@ -48,6 +48,11 @@ export type ToolId =
   | 'image-compress'
   | 'translate'
   | 'pdf-tools'
+  | 'qr-generate'
+  | 'qr-parse'
+  | 'url-codec'
+  | 'hash'
+  | 'jwt-decode'
 
 export interface ToolMeta {
   id: ToolId
@@ -107,6 +112,24 @@ export const tools: ToolMeta[] = [
     new: true,
   },
   {
+    id: 'qr-generate',
+    name: '二维码生成',
+    desc: '文本/链接生成二维码，可调尺寸下载',
+    category: 'dev',
+    tags: ['二维码', 'QR', '生成'],
+    hot: true,
+    new: true,
+  },
+  {
+    id: 'qr-parse',
+    name: '二维码解析',
+    desc: '上传图片识别二维码内容',
+    category: 'dev',
+    tags: ['二维码', 'QR', '识别'],
+    hot: true,
+    new: true,
+  },
+  {
     id: 'json-format',
     name: 'JSON 格式化',
     desc: '美化、压缩、校验 JSON，一键复制',
@@ -128,6 +151,30 @@ export const tools: ToolMeta[] = [
     desc: '文本 Base64 编码与解码',
     category: 'dev',
     tags: ['编码', 'Base64'],
+  },
+  {
+    id: 'url-codec',
+    name: 'URL 编解码',
+    desc: 'URL 编码与解码，处理特殊字符',
+    category: 'dev',
+    tags: ['URL', '编码'],
+    new: true,
+  },
+  {
+    id: 'hash',
+    name: '哈希计算',
+    desc: 'SHA-1/256/384/512 文本哈希',
+    category: 'dev',
+    tags: ['Hash', 'SHA'],
+    new: true,
+  },
+  {
+    id: 'jwt-decode',
+    name: 'JWT 解析',
+    desc: '本地解码 JWT Header 与 Payload',
+    category: 'dev',
+    tags: ['JWT', 'Token'],
+    new: true,
   },
   {
     id: 'timestamp',
